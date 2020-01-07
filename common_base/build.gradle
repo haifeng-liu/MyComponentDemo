@@ -1,0 +1,80 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.versions.compileSdkVersion
+    buildToolsVersion rootProject.ext.versions.buildToolsVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.versions.minSdkVersion
+        targetSdkVersion rootProject.ext.versions.targetSdkVersion
+        versionCode rootProject.ext.versions.versionCode
+        versionName rootProject.ext.versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        //Arouter路由配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                includeCompileClasspath = true
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    //防止编译的时候oom、GC
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    compileOptions {
+        targetCompatibility rootProject.ext.versions.javaSDKVersion
+        sourceCompatibility rootProject.ext.versions.javaSDKVersion
+    }
+}
+
+dependencies {
+    implementation  fileTree(dir: 'libs', include: ['*.jar'])
+
+    api rootProject.ext.dependencies["appcompat"]
+    api rootProject.ext.dependencies["constraintlayout"]
+    api rootProject.ext.dependencies["junit"]
+    api rootProject.ext.dependencies["runner"]
+    api rootProject.ext.dependencies["espresso"]
+    //分包
+    api rootProject.ext.dependencies["multidex"]
+    //dialog
+    api rootProject.ext.dependencies["dialogs_commons"]
+    api rootProject.ext.dependencies["dialogs_core"]
+    //二维码
+    api rootProject.ext.dependencies["LibZXing"]
+    //图片选择器
+    api rootProject.ext.dependencies["PictureSelector"]
+    //轮播图
+    api rootProject.ext.dependencies["banner"]
+    //json
+    api rootProject.ext.dependencies["fastjson"]
+    api rootProject.ext.dependencies["retrofit2_gson"]
+
+    //Arouter路由
+    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+    api rootProject.ext.dependencies["arouter_api"]
+    api rootProject.ext.dependencies["arouter_annotation"]
+    //网络
+    api rootProject.ext.dependencies["novate"]
+    //RX家族
+    api rootProject.ext.dependencies["rx2_java"]
+    api rootProject.ext.dependencies["rx2_android"]
+    //事件订阅
+    api rootProject.ext.dependencies["eventbus"]
+    //lombok
+    api rootProject.ext.dependencies["lombokJavax"]
+    api rootProject.ext.dependencies["lombok"]
+    //图片
+    api rootProject.ext.dependencies["glide"]
+
+
+}

@@ -1,0 +1,85 @@
+/**
+ * 全局统一配置文件
+ * */
+ext {
+    //true 每个业务Module可以单独开发
+    //false 每个业务Module以lib的方式运行
+    //修改之后需要Sync方可生效
+    isModule = false
+    //版本号
+    versions = [
+            applicationId           : "com.haifeng.mycomponentdemo",   //应用ID
+            versionCode             : 1,                               //版本号
+            versionName             : "1.0.0",                         //版本名称
+            compileSdkVersion       : 29,
+            buildToolsVersion       : "29.0.2",
+            minSdkVersion           : 21,
+            targetSdkVersion        : 29,
+            javaSDKVersion          : 1.8,                             //javaSDK版本
+            fastjson                : "1.2.44",
+            retrofit2_gson          : "2.3.0",
+            appcompat               : "1.0.2",
+            constraintlayout        : "1.1.3",
+            junit                   : "4.12",
+            runner                  : "1.2.0",
+            espresso                : "3.2.0",
+            multidex                : "1.0.3",
+            dialogs_commons         : "0.9.4.5",
+            dialogs_core            : "0.9.4.5",
+            LibZXing                : "v1.1.2",
+            PictureSelector         : "v2.2.3",
+            banner                  : "1.4.10",
+            arouterApiVersion       : "1.4.0",
+            arouterCompilerVersion  : "1.2.1",
+            arouterannotationVersion: "1.0.4",
+            novateVersion           : "1.5.5",
+            rx2JavaVersion          : "2.1.5",
+            rx2AndroidVersion       : "2.0.1",
+            eventbusVersion         : "3.0.0",
+            javaxVersion            : "1.2",
+            lombokVersion           : "1.16.6",
+            glideVersion            : "4.8.0",
+
+    ]
+
+    dependencies = [
+
+            "appcompat"         : "androidx.appcompat:appcompat:${versions.appcompat}",
+            "constraintlayout"  : "androidx.constraintlayout:constraintlayout:${versions.constraintlayout}",
+            "junit"             : "junit:junit:${versions.junit}",
+            "runner"            : "androidx.test:runner:${versions.runner}",
+            "espresso"          : "androidx.test.espresso:espresso-core:${versions.espresso}",
+            //分包
+            "multidex"          : "com.android.support:multidex:${versions.multidex}",
+            //dialog
+            "dialogs_commons"   : "com.afollestad.material-dialogs:commons:${versions.dialogs_commons}",
+            "dialogs_core"      : "com.afollestad.material-dialogs:core:${versions.dialogs_core}",
+            //二维码
+            "LibZXing"          : "com.github.jwkj:LibZXing:${versions.LibZXing}",
+            //图片选择器
+            "PictureSelector"   : "com.github.LuckSiege.PictureSelector:picture_library:${versions.PictureSelector}",
+            //轮播图
+            "banner"            : "com.youth.banner:banner:${versions.banner}",
+            //json
+            "fastjson"          : "com.alibaba:fastjson:${versions.fastjson}",
+            "retrofit2_gson"    : "com.squareup.retrofit2:converter-gson:${versions.retrofit2_gson}",
+            //路由
+            "arouter_api"       : "com.alibaba:arouter-api:${versions["arouterApiVersion"]}",
+            "arouter_compiler"  : "com.alibaba:arouter-compiler:${versions["arouterCompilerVersion"]}",
+            "arouter_annotation": "com.alibaba:arouter-annotation:${versions["arouterannotationVersion"]}",
+            //网络
+            "novate"            : "com.tamic.novate:novate:${versions["novateVersion"]}",
+            //RX家族
+            "rx2_java"          : "io.reactivex.rxjava2:rxjava:${versions["rx2JavaVersion"]}",
+            "rx2_android"       : "io.reactivex.rxjava2:rxandroid:${versions["rx2AndroidVersion"]}",
+            //事件订阅
+            "eventbus"          : "org.greenrobot:eventbus:${versions["eventbusVersion"]}",
+            //lombok
+            "lombokJavax"       : "javax.annotation:javax.annotation-api:${versions["javaxVersion"]}",
+            "lombok"            : "org.projectlombok:lombok:${versions["lombokVersion"]}",
+            //图片加载
+            "glide"             : "com.github.bumptech.glide:glide:${versions["glideVersion"]}",
+    ]
+
+
+}
